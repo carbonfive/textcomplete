@@ -6,7 +6,7 @@ import {
   SearchResult,
   createCustomEvent,
 } from "@textcomplete/core"
-import { calculateElementOffset, getLineHeightPx } from "@textcomplete/utils"
+import { calculateElementOffset, getLineHeightPx } from "../../textcomplete-utils"
 
 export class TextareaEditor extends Editor {
   constructor(private readonly el: HTMLTextAreaElement) {
