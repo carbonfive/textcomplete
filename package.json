@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "c5-textcomplete",
   "private": true,
   "workspaces": [
     "packages/textcomplete-*",
