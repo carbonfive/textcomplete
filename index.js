@@ -1,4 +1,4 @@
 module.exports = {
-  core: require("./packages/textcomplete-core/dist/index.js"),
-  textarea: require("./packages/textcomplete-textarea/dist/index.js")
+  core: require("./packages/textcomplete-core/dist_/index.js"),
+  textarea: require("./packages/textcomplete-textarea/dist_/index.js")
 }
