@@ -1,4 +1,4 @@
-import { Editor, CursorOffset, SearchResult } from "../../textcomplete-core/dist_/index.js";
+import { Editor, CursorOffset, SearchResult } from "../../textcomplete-core/dist/index.js";
 export declare class TextareaEditor extends Editor {
     private readonly el;
     constructor(el: HTMLTextAreaElement);

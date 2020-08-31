@@ -5,8 +5,8 @@ import {
   CursorOffset,
   SearchResult,
   createCustomEvent,
-} from "../../textcomplete-core/dist_/index.js"
-import { calculateElementOffset, getLineHeightPx } from "../../textcomplete-utils/dist_/index.js"
+} from "../../textcomplete-core/dist/index.js"
+import { calculateElementOffset, getLineHeightPx } from "../../textcomplete-utils/dist/index.js"
 
 export class TextareaEditor extends Editor {
   constructor(private readonly el: HTMLTextAreaElement) {

@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextareaEditor = void 0;
 const undate_1 = require("undate");
 const textarea_caret_1 = __importDefault(require("textarea-caret"));
-const index_js_1 = require("../../textcomplete-core/dist_/index.js");
-const index_js_2 = require("../../textcomplete-utils/dist_/index.js");
+const index_js_1 = require("../../textcomplete-core/dist/index.js");
+const index_js_2 = require("../../textcomplete-utils/dist/index.js");
 class TextareaEditor extends index_js_1.Editor {
     constructor(el) {
         super();
