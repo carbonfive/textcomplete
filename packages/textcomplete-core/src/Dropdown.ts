@@ -313,9 +313,9 @@ class DropdownItem {
     span.innerHTML = this.searchResult.render()
     li.appendChild(span)
 
-    li.addEventListener("mousedown", this.onClick)
-    li.addEventListener("touchstart", this.onClick)
-
+    li.addEventListener("mousedown", this.onClick);
+    li.addEventListener("touchstart", this.onClick);
+		li.addEventListener("mouseenter", this.activate.bind(this));
     this.el = li
   }
 
