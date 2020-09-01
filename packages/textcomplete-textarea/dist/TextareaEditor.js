@@ -31,7 +31,9 @@ class TextareaEditor extends index_js_1.Editor {
                 e.preventDefault();
             }
         };
-        this.startListening();
+        if (this.el !== undefined) {
+            this.startListening();
+        }
     }
     destroy() {
         super.destroy();

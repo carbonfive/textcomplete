@@ -11,7 +11,9 @@ import { calculateElementOffset, getLineHeightPx } from "../../textcomplete-util
 export class TextareaEditor extends Editor {
   constructor(private readonly el: HTMLTextAreaElement) {
     super()
-    this.startListening()
+		if (this.el !== undefined) {
+    	this.startListening()
+		}
   }
 
   destroy(): this {
