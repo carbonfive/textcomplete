@@ -47,7 +47,7 @@ class Dropdown extends eventemitter3_1.EventEmitter {
             return this.hide();
         this.items = searchResults
             .slice(0, this.option.maxCount || exports.DEFAULT_DROPDOWN_MAX_COUNT)
-            .map((r, index) => { var _a; return new DropdownItem(this, index, r, ((_a = this.option) === null || _a === void 0 ? void 0 : _a.item) || {}); });
+            .map((r, index) => { var _a; return new DropdownItem(this, index, r, ((_a = this.option) === null || _a === void 0 ? void 0 : _a.item) || {}, this.activate.bind(this, index)); });
         this.setStrategyId(searchResults[0])
             .renderEdge(searchResults, "header")
             .renderItems()
@@ -145,12 +145,17 @@ class Dropdown extends eventemitter3_1.EventEmitter {
     }
     activate(index) {
         if (this.activeIndex !== index) {
-            if (this.activeIndex != null) {
-                this.items[this.activeIndex].deactivate();
-            }
+            // if (this.activeIndex != null) {
+            //   this.items[this.activeIndex].deactivate()
+            // }
+            this.deactivateAll();
             this.activeIndex = index;
             this.items[index].activate();
         }
+        return this;
+    }
+    deactivateAll() {
+        this.items.forEach((i) => i.deactivate());
         return this;
     }
     isShown() {
@@ -241,11 +246,12 @@ class Dropdown extends eventemitter3_1.EventEmitter {
 }
 exports.Dropdown = Dropdown;
 class DropdownItem {
-    constructor(dropdown, index, searchResult, props) {
+    constructor(dropdown, index, searchResult, props, activationHandler) {
         this.dropdown = dropdown;
         this.index = index;
         this.searchResult = searchResult;
         this.props = props;
+        this.activationHandler = activationHandler;
         this.active = false;
         this.onClick = (e) => {
             e.preventDefault();
@@ -262,7 +268,7 @@ class DropdownItem {
         li.appendChild(span);
         li.addEventListener("mousedown", this.onClick);
         li.addEventListener("touchstart", this.onClick);
-        li.addEventListener("mouseenter", this.activate.bind(this));
+        li.addEventListener("mouseenter", activationHandler);
         this.el = li;
     }
     destroy() {

@@ -64,6 +64,7 @@ export declare class Dropdown extends EventEmitter {
     down(e: CustomEvent): this;
     moveActiveItem(direction: "next" | "prev", e: CustomEvent): this;
     activate(index: number): this;
+    deactivateAll(): this;
     isShown(): boolean;
     getActiveItem(): DropdownItem | null;
     setOffset(cursorOffset: CursorOffset): this;
@@ -78,11 +79,12 @@ declare class DropdownItem {
     private readonly index;
     readonly searchResult: SearchResult<unknown>;
     private readonly props;
+    private readonly activationHandler;
     readonly el: HTMLLIElement;
     private active;
     private readonly className;
     private readonly activeClassName;
-    constructor(dropdown: Dropdown, index: number, searchResult: SearchResult<unknown>, props: DropdownItemOption);
+    constructor(dropdown: Dropdown, index: number, searchResult: SearchResult<unknown>, props: DropdownItemOption, activationHandler: any);
     destroy(): this;
     activate(): this;
     deactivate(): this;
