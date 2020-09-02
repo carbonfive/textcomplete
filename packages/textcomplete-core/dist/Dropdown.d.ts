@@ -11,6 +11,7 @@ export interface DropdownOption {
     rotate?: boolean;
     style?: CSSStyleDeclaration;
     parent?: HTMLElement;
+    dynamicWidth?: boolean;
 }
 interface DropdownItemOption {
     className?: string;

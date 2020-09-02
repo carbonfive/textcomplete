@@ -169,7 +169,7 @@ class Dropdown extends eventemitter3_1.EventEmitter {
         if (doc) {
             const elementWidth = this.el.offsetWidth;
             if (cursorOffset.left) {
-                const browserWidth = doc.scrollWidth;
+                const browserWidth = this.option.dynamicWidth ? doc.scrollWidth : doc.clientWidth;
                 if (cursorOffset.left + elementWidth > browserWidth) {
                     cursorOffset.left = browserWidth - elementWidth;
                 }

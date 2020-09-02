@@ -14,6 +14,7 @@ export interface DropdownOption {
   rotate?: boolean
   style?: CSSStyleDeclaration
   parent?: HTMLElement
+	dynamicWidth?: boolean
 }
 
 interface DropdownItemOption {
@@ -210,7 +211,7 @@ export class Dropdown extends EventEmitter {
     if (doc) {
       const elementWidth = this.el.offsetWidth
       if (cursorOffset.left) {
-        const browserWidth = doc.scrollWidth
+        const browserWidth = this.option.dynamicWidth ? doc.scrollWidth : doc.clientWidth;
         if (cursorOffset.left + elementWidth > browserWidth) {
           cursorOffset.left = browserWidth - elementWidth
         }
